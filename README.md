@@ -5,7 +5,7 @@
 <h1 align="center">FreeFlow</h1>
 
 <p align="center">
-  Free and open source alternative to <a href="https://wisprflow.ai">Wispr Flow</a>, <a href="https://superwhisper.com">Superwhisper</a>, and <a href="https://monologue.to">Monologue</a>.
+  My free and open source alternative to Wispr Flow, Superwhisper, and Monologue.
 </p>
 
 <p align="center">
@@ -19,38 +19,32 @@
   <img src="Resources/demo.gif" alt="FreeFlow demo" width="600">
 </p>
 
-<p align="center">
-  <i>Thank you to <a href="https://github.com/marcbodea">@marcbodea</a> for maintaining FreeFlow!</i>
-</p>
-
-## Overview
-
-FreeFlow is a free Mac dictation app inspired by [Wispr Flow](https://wisprflow.ai/), [Superwhisper](https://superwhisper.com/), and [Monologue](https://www.monologue.to/). It gives you fast AI transcription, context-aware cleanup, and voice-driven text editing without a monthly subscription.
+Hey there! I built FreeFlow because I wanted a fast, free Mac dictation app that gives you quick AI transcription, context-aware cleanup, and voice-driven text editing—all without a monthly subscription.
 
 ## Quick Start
 
-1. Download the app from above or [click here](https://github.com/zachlatta/freeflow/releases/latest/download/FreeFlow.dmg)
-2. Get a free Groq API key from [groq.com](https://groq.com/)
-3. Hold `Fn` to talk, or tap `Command-Fn` to start and stop dictation, and have whatever you say pasted into the current text field
+1. Download the app from the link above.
+2. Get a free API key from Groq.
+3. Hold `Fn` to talk, or tap `Command-Fn` to start and stop dictation, and have whatever you say pasted right into your current text field.
 
 ## Features
 
-- **Custom shortcuts:** Customize both hold-to-talk and toggle dictation shortcuts. If your toggle shortcut extends your hold shortcut, you can start in hold mode and press the extra modifier keys to latch into tap mode without stopping the recording.
-- **Context-aware cleanup:** FreeFlow can read nearby app context so names, terms, and phrases are spelled correctly when you dictate into email, terminals, docs, and other apps.
-- **Custom vocabulary:** Add names, jargon, and project-specific words that FreeFlow should preserve during cleanup.
-- **OpenAI-compatible providers:** Use Groq by default, or configure a custom model and API URL in settings.
+- **Custom shortcuts:** You can customize both hold-to-talk and toggle dictation shortcuts. If your toggle shortcut extends your hold shortcut, you can start in hold mode and press the extra modifier keys to latch into tap mode without stopping the recording!
+- **Context-aware cleanup:** I made FreeFlow read nearby app context so your names, terms, and phrases are spelled correctly when you dictate into email, terminals, docs, and other apps.
+- **Custom vocabulary:** Add your names, jargon, and project-specific words that FreeFlow should preserve during cleanup.
+- **OpenAI-compatible providers:** Uses Groq by default, but you can configure a custom model and API URL in the settings.
 
 ## Edit Mode
 
-Edit Mode lets you highlight existing text and transform it with a spoken instruction, like "make this shorter" or "turn this into bullets." Enable it in settings, then use your normal dictation shortcut on selected text, or choose Manual mode to require an extra modifier key.
+Edit Mode lets you highlight existing text and transform it with a spoken instruction, like "make this shorter" or "turn this into bullets." You can enable it in the settings, then use your normal dictation shortcut on selected text, or choose Manual mode to require an extra modifier key.
 
 ## Privacy
 
-There is no FreeFlow server, so FreeFlow does not store or retain your data. The only information that leaves your computer are API calls to your configured transcription and LLM provider.
+There's no FreeFlow server, so I don't store or retain any of your data. The only information that leaves your computer are API calls to your configured transcription and LLM provider.
 
 ## Custom Cleanup
 
-If you'd rather keep cleanup more literal and less context-aware, you can paste this simpler prompt into the custom system prompt setting:
+If you'd rather keep cleanup more literal and less context-aware, you can just paste this simpler prompt into the custom system prompt setting:
 
 <details>
   <summary>Simple post-processing prompt</summary>
@@ -78,14 +72,14 @@ Then your response would be ONLY the cleaned up text, so here your response is O
 
 ## Using a Local Model
 
-FreeFlow can use OpenAI-compatible local or self-hosted providers instead of Groq. In settings, configure the API base URL and model IDs for your local LLM provider, such as Ollama, LM Studio, or another OpenAI-compatible server. If your transcription backend uses a different endpoint from your LLM backend, set the transcription API URL separately.
+You can also use OpenAI-compatible local or self-hosted providers instead of Groq. Just configure the API base URL and model IDs for your local LLM provider (like Ollama, LM Studio, etc.) in settings. If your transcription backend uses a different endpoint from your LLM backend, you can set the transcription API URL separately.
 
-Local models are often slower than hosted providers, especially on cold start, long recordings, or busy hardware.
+Just keep in mind that local models are often slower than hosted providers, especially on cold start, long recordings, or busy hardware.
 
 <details>
   <summary>Configure longer timeouts for local models</summary>
 
-  FreeFlow keeps the default network timeout at 20 seconds, but you can extend it with macOS defaults:
+  I kept the default network timeout at 20 seconds, but you can extend it with macOS defaults:
 
 ```bash
 defaults write com.zachlatta.freeflow transcription_timeout_seconds -float 120
@@ -99,7 +93,7 @@ The timeout keys are:
 - `post_processing_timeout_seconds`: transcript cleanup and edit mode requests
 - `context_request_timeout_seconds`: nearby app context requests
 
-Only positive values are used. Remove a custom timeout to return to the 20-second default:
+Only positive values are used. If you want to remove a custom timeout to return to the 20-second default:
 
 ```bash
 defaults delete com.zachlatta.freeflow transcription_timeout_seconds
